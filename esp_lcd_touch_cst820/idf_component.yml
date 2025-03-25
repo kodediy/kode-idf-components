@@ -1,0 +1,7 @@
+version: "1.0.0"
+description: ESP LCD Touch CST820 - touch controller CST820
+dependencies:
+  idf: ">=5.0.0"
+  esp_lcd_touch:
+    version: "^1.0.4"
+    public: true
