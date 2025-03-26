@@ -2,6 +2,8 @@
 
 #include <stdint.h>
 #include "kode_bq25896.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 #ifdef __cplusplus
 extern "C" {

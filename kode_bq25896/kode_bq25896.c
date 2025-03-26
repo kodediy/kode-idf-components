@@ -12,6 +12,8 @@
 #include "kode_bq25896.h"
 #include "kode_bq25896_priv.h"
 #include "driver/i2c_master.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 static const char *TAG = "bq25896";
 
@@ -839,9 +841,12 @@ esp_err_t bq25896_get_battery_status(bq25896_handle_t handle, bq25896_battery_st
         status->health = BQ25896_BATTERY_HEALTH_GOOD;
     }
     
-    ESP_LOGD(TAG, "Battery status: SoC=%.1f%%, V=%dmV, I=%dmA, T=%.1fC, Health=%d", 
-            status->soc_percent, status->voltage_mv, status->current_ma, 
-            status->temperature_c, status->health);
+    ESP_LOGD(TAG, "Battery status: SoC=%.1f%%, V=%umV, I=%umA, T=%.1fC, Health=%d",
+             status->soc_percent, 
+             (unsigned int)status->voltage_mv, 
+             (unsigned int)status->current_ma, 
+             status->temperature_c, 
+             status->health);
     
     return ESP_OK;
 }
