@@ -12,7 +12,7 @@ extern "C" {
 /** 
  * @brief Default I2C address for BQ25896 (7-bit)
  */
-#define BQ25896_I2C_ADDR_DEFAULT  0x6A
+#define BQ25896_I2C_ADDR_DEFAULT  0x6B
 
 /**
  * @brief Input Current Limit options (in mA) for REG00 [5:0]
